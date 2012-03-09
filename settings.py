@@ -32,9 +32,9 @@ DEFAULT_SQLITE_DATABASES = {
 DATABASES                  = locals().get('DATABASES', DEFAULT_SQLITE_DATABASES)
 
 # Derived settings
-STATIC_ROOT          = SITE_BASE_DIR + '/static/'
-SITE_URL            = 'http://' + SHORT_SITE_URL
-MEDIA_URL           = 'http://' + SHORT_SITE_URL + '/static/'
+STATIC_ROOT   = SITE_BASE_DIR + '/static/'
+SITE_URL      = 'http://' + SHORT_SITE_URL
+STATIC_URL    = 'http://' + SHORT_SITE_URL + '/static/'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -93,7 +93,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'accounts.middleware.SavedAnonymousUserMiddleware',   # must be after AuthenticationMiddleware
     'django.contrib.messages.middleware.MessageMiddleware',
     #'util.middleware.ReqRespLogger',
     #'util.middleware.PrintSQL',
@@ -105,7 +104,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
+    'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request', # necessary for RequestContext?
 
@@ -114,7 +113,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'accounts.backend.SavedAnonymousUserBackend',
 )
 
 INSTALLED_APPS = (

@@ -8,7 +8,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^/$',       'main.views.static', {'page': 'main/index.html'}, name='index'),
+    url(r'^$',       'main.views.static', {'page': 'main/index.html'}, name='index'),
 )
 
 if settings.SERVE_STATIC:
