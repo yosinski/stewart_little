@@ -1,0 +1,3 @@
+To make images
+convert ../graphics/sl.jpg -quality 40 sl.low.jpg
+convert ../graphics/sl.jpg -resize 1600x1600 -quality 60 sl.low.jpg
