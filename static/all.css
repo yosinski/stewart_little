@@ -112,6 +112,9 @@ div.botclear {
 	clear: both;
 }
 
+a.email .b, a.email .d, a.email .e, a.email .f, a.email .g, a.email .j {
+    display: none;
+}
 
 
 
