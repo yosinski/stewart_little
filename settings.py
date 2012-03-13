@@ -8,8 +8,13 @@ try:
 except ImportError:
     raise Exception('Could not import settings_local. Did you create it from the template?')
 
+try:
+    SECRET_KEY
+except NameError:
+    raise Exception('You need to define SECRET_KEY in settings_local.py')
+
 # Provide defaults if not imported from settings_local
-ADMINS                     = locals().get('ADMINS',  (('Jason Yosinski', 'jason.yosinski@gmail.com'),))
+ADMINS                     = locals().get('ADMINS',  tuple())
 MANAGERS                   = locals().get('MANAGERS', ADMINS)
 DEBUG                      = locals().get('DEBUG', False)
 DANGEROUS_ALL_IPS_INTERNAL = locals().get('DANGEROUS_ALL_IPS_INTERNAL', False)
@@ -18,6 +23,9 @@ TEMPLATE_DEBUG             = locals().get('TEMPLATE_DEBUG', DEBUG or EXTRA_TEMPL
 SITE_BASE_DIR              = locals().get('SITE_BASE_DIR', os.path.abspath(os.path.dirname(__file__)))
 ADMIN_MEDIA_PREFIX         = locals().get('ADMIN_MEDIA_PREFIX', '/media/admin/')
 SERVE_STATIC               = locals().get('SERVE_STATIC', False) # whether to enable static serve
+
+if len(ADMINS) == 0:
+    print 'WARNING: no ADMINS defined'
 
 DEFAULT_SQLITE_DATABASES = {
     'default': {
@@ -76,9 +84,6 @@ USE_I18N = True
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
 USE_L10N = True
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'lj3f89j(*#FJ(S*JEf98jsflkjF(83jfj;lksjf498hw4gjif3'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (

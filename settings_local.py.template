@@ -1,6 +1,11 @@
+# These settings should be defined
 SHORT_SITE_URL = '127.0.0.1:8000'
-DEBUG          = True
-SERVE_STATIC   = True
-EXTRA_TEMPLATE_DEBUG = 'DEBUG(%s)'
-TEMPLATE_DEBUG = 'DEBUG(%s)'
-TEMPLATE_STRING_IF_INVALID = 'ERROR(%s)'
+#ADMINS          = (('Admin Name', 'admin_email@example.com'),))
+#SECRET_KEY      = 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfas'
+
+# Optional
+#DEBUG          = True
+#SERVE_STATIC   = True
+#EXTRA_TEMPLATE_DEBUG = 'DEBUG(%s)'
+#TEMPLATE_DEBUG = 'DEBUG(%s)'
+#TEMPLATE_STRING_IF_INVALID = 'ERROR(%s)'
