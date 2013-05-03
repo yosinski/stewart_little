@@ -137,7 +137,7 @@ body {
 
 #container {
 	width: 500px;
-	margin: 10% auto 0;
+	margin: 7% auto 0;
 }
 
 #container {
@@ -154,8 +154,12 @@ body {
 	margin-bottom: .5em;
 }
 
-#container p {
+#container p,
+#container ul,
+#container ol {
     font-size: 14px;
+}
+#container p {
 	margin: 1em 0;
 	text-align: justify;
 	line-height: 1.5;
@@ -167,3 +171,25 @@ body {
 	margin-right: auto;
 }
 
+div.highlight {
+	background: rgba(0,251,203,0.73);
+	color: black;
+	margin: 0 -1.5em;
+	padding: 0 1.5em .5em;
+	border-top: 5px solid rgba(0,251,203,0.73);
+	border-bottom: 5px solid rgba(0,251,203,0.73);
+}
+#container div.highlight p {
+	margin: .75em 0;
+}
+em {
+	font-weight: bold;
+}
+ul {
+    list-style: disc;
+    list-style-position: inside;
+    padding-left: 1em;
+}
+ul li {
+	margin: 1em 0;
+}
