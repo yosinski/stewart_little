@@ -1,47 +1,68 @@
 {% extends 'main/boxlayout.html' %}
 
 {% block content %}
-<h1>Stewart Little</h1>
 
-<p>Stewart Little Cooperative: population 14, a good place
-to live.</p>
+<script src="http://code.jquery.com/jquery-2.1.4.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+function swap(elem)
+{
+    $(elem).toggleClass('focused')   
+}
+</script>
 
+<div id="topbox">
+<h1>Stewart Little Co-op</h1>
+<h2>211 Stewart Ave | 14850 Ithaca, NY</h2>
+</div>
 
-<p> We are a cooperative of 14 people. Our diverse community reflects
-the character of this small upstate New York university town. Our
-house is an old, somewhat run down but beautiful Victorian mansion,
-located on a hill between downtown Ithaca and Cornell University. Many
+<metacolumn>
+<column>
+<h2>The Community</h2>
+<p> We are a cooperative of 15 people. Our diverse community reflects
+the character of this small upstate New York university town. Many
 of us have some link with Cornell University as graduate students or
-workers.  We share all food (vegetarian) and eat together every
-evening. Dinner is cooked by one member in rotation, and shopping and
-cleaning are also shared. Each member has a specific responsibility
-within the house such as accounting, composting, recycling, dealing
-with membership applications, or managing the kitchen.  The spirit of
-our community is evident in our energetic conversations and social
-gatherings.</p>
+workers.</p>
+</column>
 
+<column>
+<h2>The House</h2>
+<p>We live in a big, somewhat rundown house in Collegetown. We have a large common area and 14 bedrooms.
+The building is surrounded by a beautiful garden that we use to plant vegtables and do our own compost.</p>
 
-<p class="contact left">
-211 Stewart Ave<br />
-Ithaca, New York 14850<br />
-United States<br />
-(<a href="http://maps.google.com/maps?q=211+Stewart+Ave,+Ithaca,+NY+14850&hl=en&ll=42.441511,-76.489477&spn=0.005328,0.00986&sll=42.443961,-76.501881&sspn=0.085252,0.157757&oq=211+stewart+ave&hnear=211+Stewart+Ave,+Ithaca,+New+York+14850&t=m&z=17">map</a>)
+<p class="images">
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}winter.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}dining-room.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}djjack.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}driveway.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}porch.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}slcnow.jpg" />
 </p>
+</column>
 
-<p class="contact right">
-{% comment %}+1.607.273.1983{% endcomment %}
-Contact:<br />
+<column>
+<h2>The Co-op</h2>
+<p>We share all food (vegetarian) and eat together every
+evening. Each member has a specific responsibility
+within the house such as accounting, composting, recycling, dealing
+with membership applications, or managing the kitchen. </p>
+
+<p class="images">
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}food1.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}food2.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}food3.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}food4.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}food5.jpg" />
+<img class="zoom" onclick="swap(this)" src="{{ STATIC_URL }}food6.jpg" />
+</p>
+</column>
+
+<column>
+<h2>Contact</h2>
+<p>Regular leases start in August of each year. Send us an e-mail, if you're interested:<br />
 <a class="email" href="mailto:info__REMOVE__THIS@stewartlittle.org"><span class="b">__</span><span class="c">in</span><span class="d">_Tak</span><span class="e">e_T</span><span class="f">his_o</span><span class="g">ut_</span><span class="h">f</span><span class="i">o</span><span class="j">__</span><span class="k">@</span><span class="l">stewartlittle.org</span></a>
 </p>
-
-<div class="clearboth"></div>
-
-<div class="highlight">
-<p>Sublets currently available for <em>Summer 2013</em> (email to inquire):</p>
-<ul>
-<li>Mid-may (flexible) &ndash; Aug 15</li>
-<li>June 1 &ndash; Aug 15</li>
-</ul>
-</div>
+</column>
+</metacolumn>
 
 {% endblock %}

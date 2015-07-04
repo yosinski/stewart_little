@@ -15,8 +15,7 @@ except NameError:
 # Provide defaults if not imported from settings_local
 ADMINS                     = locals().get('ADMINS',  tuple())
 MANAGERS                   = locals().get('MANAGERS', ADMINS)
-DEBUG                      = locals().get('DEBUG', True)
-DANGEROUS_ALL_IPS_INTERNAL = locals().get('DANGEROUS_ALL_IPS_INTERNAL', False)
+DEBUG                      = locals().get('DEBUG', False)
 EXTRA_TEMPLATE_DEBUG       = locals().get('EXTRA_TEMPLATE_DEBUG', False)
 TEMPLATE_DEBUG             = locals().get('TEMPLATE_DEBUG', DEBUG or EXTRA_TEMPLATE_DEBUG)
 SITE_BASE_DIR              = locals().get('SITE_BASE_DIR', os.path.abspath(os.path.dirname(__file__)))
@@ -24,18 +23,6 @@ ADMIN_MEDIA_PREFIX         = locals().get('ADMIN_MEDIA_PREFIX', '/media/admin/')
 
 if len(ADMINS) == 0:
     print('WARNING: no ADMINS defined')
-
-DEFAULT_SQLITE_DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-    'NAME': os.path.join(SITE_BASE_DIR, 'sqlite.db'),             # Or path to database file if using sqlite3.
-    'USER': '',                      # Not used with sqlite3.
-    'PASSWORD': '',                  # Not used with sqlite3. TODO try removing!
-    'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-    'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
-DATABASES                  = locals().get('DATABASES', DEFAULT_SQLITE_DATABASES)
 
 # Derived settings
 STATIC_ROOT   = SITE_BASE_DIR + '/static/'
@@ -55,19 +42,7 @@ TIME_ZONE = 'US/Eastern'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-if DANGEROUS_ALL_IPS_INTERNAL:
-    # Make DEBUG available on all IPs
-    from fnmatch import fnmatch
-    class glob_list(list):
-        def __contains__(self, key):
-            for elt in self:
-                if fnmatch(key, elt): return True
-            return False
-
-    INTERNAL_IPS = glob_list([
-        '127.0.0.1',
-        '*.*.*.*', # Use Debug carefully with this!
-        ])
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'kai-desktop.systems.cs.cornell.edu', 'stewartlittle.org']
 
 TEMPLATE_DIRS = (
     SITE_BASE_DIR + '/templates',
